@@ -191,6 +191,13 @@ for i = 1:length(pln.gantryAngles)
     % remove double rays
     rayPos = unique(rayPos,'rows');
     
+
+    % TODO: Add this param to the GUI
+    pln.fieldSize = [100 100]; %[mm]
+    % remove rays outside the field
+    rayPos = rayPos(abs(rayPos(:,1)) < pln.fieldSize(1)/2,:);
+    rayPos = rayPos(abs(rayPos(:,3)) < pln.fieldSize(2)/2,:);
+    
     % Save the number of rays
     stf(i).numOfRays = size(rayPos,1);
     
