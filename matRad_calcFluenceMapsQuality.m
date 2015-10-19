@@ -98,8 +98,8 @@ for i = 1:numOfBeams
     zY = zeros(numel(fXVals),1);
     zXY = zeros(numel(fXVals),1);
     for k = 1:numel(std_F)
-        zX(k) = (1/((n-1)*m))*sum(diffX(:) > std_F(k));
-        zY(k) = (1/((m-1)*n))*sum(diffY(:) > std_F(k));
+        zX(k) = (1/((m-1)*(n-1)))*sum(diffX(:) > std_F(k));
+        zY(k) = (1/((m-1)*(n-1)))*sum(diffY(:) > std_F(k));
         zXY(k) = (1/((m-1)*(n-1)))*sum(diffXY(:) > std_F(k));
     end
 
